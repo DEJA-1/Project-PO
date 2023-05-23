@@ -31,6 +31,9 @@ public class Main {
         runSimulation(children, adults, elders, virus, days, results);
     }
 
+    /*
+    TODO fix heal chance bug
+     */
     public static void runSimulation(ArrayList<Child> children, ArrayList<Adult> adults, ArrayList<Elder> elders , Virus virus, int days, Results results) {
         for (int i = 0; i < days; i++) {
 
