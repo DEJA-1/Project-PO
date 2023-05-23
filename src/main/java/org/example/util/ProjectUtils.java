@@ -1,6 +1,12 @@
 package org.example.util;
 
+import org.example.virus.Acutus;
+import org.example.virus.Virolexia;
+import org.example.virus.Virus;
+
+import java.util.HashMap;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ProjectUtils {
 
@@ -26,4 +32,45 @@ public class ProjectUtils {
 
         return sb.toString();
     }
+
+    public static HashMap<String, Object> getInputData() {
+        HashMap<String, Object> data = new HashMap<>();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter amount of children: ");
+        int amountOfChildren = scanner.nextInt();
+        data.put("children", amountOfChildren);
+
+        System.out.println("Enter amount of adults: ");
+        int amountOfAdults = scanner.nextInt();
+        data.put("adults", amountOfAdults);
+
+        System.out.println("Enter amount of elders: ");
+        int amountOfElders = scanner.nextInt();
+        data.put("elders", amountOfElders);
+
+        System.out.println("Enter duration of the pandemic (days)");
+        int days = scanner.nextInt();
+        data.put("days", days);
+
+        System.out.println("Choose virus: \n[1] - Acutus\n[2] - Virolexia");
+        int input = scanner.nextInt();
+
+        switch (input) {
+            case 1: {
+                Virus virus1 = new Acutus();
+                data.put("virus", virus1);
+            }
+
+            case 2: {
+                Virus virus2 = new Virolexia();
+                data.put("virus", virus2);
+            }
+        }
+
+        return data;
+    }
+
+
 }

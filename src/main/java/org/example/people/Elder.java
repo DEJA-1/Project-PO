@@ -4,20 +4,11 @@ import org.example.results.Results;
 import org.example.util.ProjectUtils;
 
 public class Elder extends Adult{
-    private String name;
+
     private int healChance = 30;
 
-    private int vaccinateChance = 40;
-
+    private int vaccinateChance = 35;
     private int deathChance = 35;
-
-    private String status = "notInfected";
-
-    private boolean heartache = false;
-
-    private boolean phlegm = false;
-
-    private boolean isVaccinated = false;
     private boolean isDead = false;
     public Elder(String name, int healChance, int vaccinateChance, int deathChance, String status, boolean heartache, boolean phlegm, boolean isVaccinated, boolean isDead) {
         super(name, healChance, vaccinateChance, status, heartache, phlegm, isVaccinated);
@@ -25,23 +16,13 @@ public class Elder extends Adult{
         this.deathChance = deathChance;
     }
 
-//    @Override
-//    public void tryAvoidPhysicalContact() {
-//        int chanceToDrawAvoidPhysicalContact = 50;
-//        boolean avoidedPhysicalContact = false;
-//        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
-//
-//        if (avoidPhysicalContact && !avoidedPhysicalContact) {
-//            this.healChance += 10;
-//            avoidedPhysicalContact = true;
-//        }
-//    }
-
     public void tryDie() {
         boolean die = ProjectUtils.checkIfDoAction(deathChance);
+        String st = getStatus();
 
-        if (die && !isDead) {
-            this.isDead = true;
+        if (die && st == "Infected" && !isDead) {
+            setIsDead(true);
+            setStatus("Dead");
             Results.deadCount++;
         }
     }
@@ -50,5 +31,8 @@ public class Elder extends Adult{
         return this.isDead;
     }
 
+    public void setIsDead(boolean isDead) {
+        this.isDead = isDead;
+    }
 
 }

@@ -6,7 +6,7 @@ import org.example.util.ProjectUtils;
 public class Child {
     private String name;
 
-    private int healChance;
+    private int healChance = 25;
 
     private String status;
 

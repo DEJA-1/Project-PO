@@ -10,20 +10,25 @@ import org.example.virus.Virolexia;
 import org.example.virus.Virus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static org.example.util.ProjectUtils.getInputData;
 
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Child> children = getChildren(23);
-        ArrayList<Adult> adults = getAdults(13);
-        ArrayList<Elder> elders = getElders(13);
-        int days = 5;
-        Virus acutus = new Acutus();
-        Virus virolexia = new Virolexia();
+        HashMap<String, Object> data = getInputData();
 
-        Results results = new Results(children, adults, elders, acutus, days);
+        ArrayList<Child> children = getChildren((Integer) data.get("children"));
+        ArrayList<Adult> adults = getAdults((Integer) data.get("adults"));
+        ArrayList<Elder> elders = getElders((Integer) data.get("elders"));
 
-        runSimulation(children, adults, elders, acutus, days, results);
+        int days = (int) data.get("days");
+        Virus virus = (Virus) data.get("virus");
+
+        Results results = new Results(children, adults, elders, virus, days);
+
+        runSimulation(children, adults, elders, virus, days, results);
     }
 
     public static void runSimulation(ArrayList<Child> children, ArrayList<Adult> adults, ArrayList<Elder> elders , Virus virus, int days, Results results) {
@@ -34,10 +39,14 @@ public class Main {
                 child.tryAvoidPhysicalContact();
 
                 // infection
-                virus.infect(child);
+                String st = child.getStatus();
+                if (st == "notInfected") {
+                    virus.infect(child);
+                }
 
                 // after infection
                 child.tryToHeal();
+                printInfo(child);
             }
 
             for (Adult adult : adults) {
@@ -46,23 +55,34 @@ public class Main {
                 adult.tryVaccinate();
 
                 // infection
-                virus.infect(adult);
+                String st = adult.getStatus();
+                if (st == "notInfected") {
+                    virus.infect(adult);
+                }
 
                 // after infection
                 adult.tryToHeal();
+                printInfo(adult);
             }
 
             for (Elder elder : elders) {
-                // before infection
-                elder.tryAvoidPhysicalContact();
-                elder.tryVaccinate();
+                boolean isDead = elder.getIsDead();
+                if (!isDead) {
+                    // before infection
+                    elder.tryAvoidPhysicalContact();
+                    elder.tryVaccinate();
 
-                //infection
-                virus.infect(elder);
+                    //infection
 
-                // after infection
-                elder.tryToHeal();
-                elder.tryDie();
+                    String st = elder.getStatus();
+                    if (st == "notInfected") {
+                        virus.infect(elder);
+                    }
+                    // after infection
+                    elder.tryToHeal();
+                    elder.tryDie();
+                }
+
                 printInfo(elder);
             }
         }
