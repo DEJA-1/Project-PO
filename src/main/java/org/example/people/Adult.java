@@ -19,21 +19,22 @@ public class Adult extends Child {
 
     private final boolean isDead = false;
 
-    public Adult(String name) {
-        super(name);
+    public Adult(String name, int healChance, int vaccinateChance, String status, boolean heartache, boolean phlegm, boolean isVaccinated) {
+        super(name, healChance, status, heartache, phlegm);
+        this.isVaccinated = isVaccinated;
+        this.vaccinateChance = vaccinateChance;
     }
-    @Override
-    public void tryAvoidPhysicalContact() {
-        int chanceToDrawAvoidPhysicalContact = 30;
-        boolean avoidedPhysicalContact = false;
-        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
-
-        if (avoidPhysicalContact && !avoidedPhysicalContact) {
-            this.healChance += 10;
-            avoidedPhysicalContact = true;
-            System.out.println("AVOIDING PHYSICAL CONTACT");
-        }
-    }
+//    @Override
+//    public void tryAvoidPhysicalContact() {
+//        int chanceToDrawAvoidPhysicalContact = 30;
+//        boolean avoidedPhysicalContact = false;
+//        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
+//
+//        if (avoidPhysicalContact && !avoidedPhysicalContact) {
+//            this.healChance += 10;
+//            avoidedPhysicalContact = true;
+//        }
+//    }
 
     public void tryVaccinate() {
         boolean vaccinate = ProjectUtils.checkIfDoAction(vaccinateChance);

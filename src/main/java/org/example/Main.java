@@ -6,6 +6,7 @@ import org.example.people.Elder;
 import org.example.results.Results;
 import org.example.util.ProjectUtils;
 import org.example.virus.Acutus;
+import org.example.virus.Virolexia;
 import org.example.virus.Virus;
 
 import java.util.ArrayList;
@@ -13,20 +14,21 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Child> children = getChildren(20);
-        ArrayList<Adult> adults = getAdults(20);
-        ArrayList<Elder> elders = getElders(20);
+        ArrayList<Child> children = getChildren(23);
+        ArrayList<Adult> adults = getAdults(13);
+        ArrayList<Elder> elders = getElders(13);
+        int days = 5;
         Virus acutus = new Acutus();
+        Virus virolexia = new Virolexia();
 
-        runSimulation(children, adults, elders, acutus, 10);
+        Results results = new Results(children, adults, elders, acutus, days);
 
+        runSimulation(children, adults, elders, acutus, days, results);
     }
 
-    /*
-    Zbugowany healChance
-     */
-    public static void runSimulation(ArrayList<Child> children, ArrayList<Adult> adults, ArrayList<Elder> elders , Virus virus, int days) {
+    public static void runSimulation(ArrayList<Child> children, ArrayList<Adult> adults, ArrayList<Elder> elders , Virus virus, int days, Results results) {
         for (int i = 0; i < days; i++) {
+
             for (Child child : children) {
                 // before infection
                 child.tryAvoidPhysicalContact();
@@ -48,7 +50,6 @@ public class Main {
 
                 // after infection
                 adult.tryToHeal();
-
             }
 
             for (Elder elder : elders) {
@@ -62,10 +63,11 @@ public class Main {
                 // after infection
                 elder.tryToHeal();
                 elder.tryDie();
+                printInfo(elder);
             }
         }
 
-        Results.printResults();
+        results.printResults();
     }
 
     public static ArrayList<Child> getChildren(int n) {
@@ -73,7 +75,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             String name = ProjectUtils.generateName();
-            Child child = new Child(name);
+            Child child = new Child(name, 25, "notInfected", false, false);
             children.add(child);
         }
 
@@ -85,7 +87,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             String name = ProjectUtils.generateName();
-            Adult adult = new Adult(name);
+            Adult adult = new Adult(name, 30, 25, "notInfected", false, false, false);
             adults.add(adult);
         }
 
@@ -97,7 +99,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             String name = ProjectUtils.generateName();
-            Elder elder = new Elder(name);
+            Elder elder = new Elder(name, 30, 40, 35, "notInfected", false, false, false, false);
             elders.add(elder);
         }
 

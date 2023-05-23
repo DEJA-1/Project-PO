@@ -6,20 +6,24 @@ import org.example.util.ProjectUtils;
 public class Child {
     private String name;
 
-    private int healChance = 25;
+    private int healChance;
 
-    private String status = "notInfected";
+    private String status;
 
-    private boolean heartache = false;
+    private boolean heartache;
 
-    private boolean phlegm = false;
+    private boolean phlegm;
 
     private final boolean isVaccinated = false;
 
     private final boolean isDead = false;
 
-    public Child (String name) {
+    public Child (String name, int healChance, String status, boolean heartache, boolean phlegm) {
         this.name = name;
+        this.healChance = healChance;
+        this.status = status;
+        this.heartache = heartache;
+        this.phlegm = phlegm;
     }
 
     public void tryAvoidPhysicalContact() {
@@ -30,7 +34,6 @@ public class Child {
         if (avoidPhysicalContact && !avoidedPhysicalContact) {
             this.healChance += 10;
             avoidedPhysicalContact = true;
-            System.out.println("AVOIDING PHYSICAL CONTACT");
         }
     }
 
