@@ -1,10 +1,13 @@
 package org.example.people;
 
+import org.example.results.Results;
 import org.example.util.Util;
 
 public class Adult extends Child {
     private String name;
     private int healChance = 30;
+
+    private int vaccinateChance = 25;
 
     private String status = "notInfected";
 
@@ -29,9 +32,13 @@ public class Adult extends Child {
     }
 
     public void tryVaccinate() {
-        //TODO - RANDOM CHANCE OF VACCINATING
-        this.healChance += 20;
-        this.isVaccinated = true;
+        boolean vaccinate = Util.checkIfDoAction(vaccinateChance);
+
+        if (vaccinate) {
+            this.healChance += 20;
+            this.isVaccinated = true;
+            Results.vaccinatedCount++;
+        }
     }
 
     public int getHealChance() {

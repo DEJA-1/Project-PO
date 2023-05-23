@@ -7,6 +7,8 @@ public class Elder extends Adult{
     private String name;
     private int healChance = 30;
 
+    private int vaccinateChance = 40;
+
     private int deathChance = 35;
 
     private String status = "notInfected";
@@ -31,16 +33,18 @@ public class Elder extends Adult{
         }
     }
 
-    public boolean getIsDead() {
-        return this.isDead;
-    }
-
     public void tryDie() {
-        //TODO - RANDOM CHANCE OF DYING
-        boolean deadDrawed = true;
-        if (deadDrawed) {
+        boolean die = Util.checkIfDoAction(deathChance);
+
+        if (die) {
             this.isDead = true;
             Results.deadCount++;
         }
     }
+
+    public boolean getIsDead() {
+        return this.isDead;
+    }
+
+
 }

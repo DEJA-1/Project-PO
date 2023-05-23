@@ -25,7 +25,6 @@ public class Main {
         acutus.infect(adult);
         virolexia.infect(child);
         adult.tryVaccinate();
-        elder.tryVaccinate();
         elder.tryDie();
         adult.tryToHeal();
 
@@ -50,8 +49,6 @@ public class Main {
     }
 
     public static void runSimulation(ArrayList<Child> children, ArrayList<Elder> elders, ArrayList<Adult> adults, Virus virus, int days) {
-        //TODO - RUN THE SIMULATION ITERATING days TIMES
-
         for (int i = 0; i < days; i++) {
             for (Child child : children) {
                 // before infection

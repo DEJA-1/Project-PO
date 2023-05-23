@@ -17,9 +17,6 @@ public class Child {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
     public void tryAvoidPhysicalContact() {
         int chanceToDrawAvoidPhysicalContact = 10;
         boolean avoidPhysicalContact = Util.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
@@ -29,9 +26,24 @@ public class Child {
         }
     }
 
+    public void tryToHeal() {
+        boolean heal = Util.checkIfDoAction(healChance);
+
+        if(heal) {
+            setStatus("Healed");
+            Results.healedCount++;
+        }
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public int getHealChance() {
         return healChance;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
@@ -58,16 +70,6 @@ public class Child {
 
     public boolean getIsVaccinated() {
         return this.isVaccinated;
-    }
-
-    public void tryToHeal() {
-        boolean heal = Util.checkIfDoAction(healChance);
-
-        if(heal) {
-            setStatus("Healed");
-            Results.healedCount++;
-        }
-
     }
 
     public boolean getIsDead() {
