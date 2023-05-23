@@ -3,9 +3,9 @@ package org.example.virus;
 import org.example.people.Child;
 
 public abstract class Virus {
-    protected double infectionChance;
+    protected int infectionChance;
 
-    public Virus(double infectionChance) {
+    public Virus(int infectionChance) {
         this.infectionChance = infectionChance;
     }
 

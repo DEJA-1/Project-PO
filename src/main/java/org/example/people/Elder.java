@@ -1,7 +1,7 @@
 package org.example.people;
 
 import org.example.results.Results;
-import org.example.util.Util;
+import org.example.util.ProjectUtils;
 
 public class Elder extends Adult{
     private String name;
@@ -26,17 +26,19 @@ public class Elder extends Adult{
     @Override
     public void tryAvoidPhysicalContact() {
         int chanceToDrawAvoidPhysicalContact = 50;
-        boolean avoidPhysicalContact = Util.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
+        boolean avoidedPhysicalContact = false;
+        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
 
-        if (avoidPhysicalContact) {
+        if (avoidPhysicalContact && !avoidedPhysicalContact) {
             this.healChance += 10;
+            avoidedPhysicalContact = true;
         }
     }
 
     public void tryDie() {
-        boolean die = Util.checkIfDoAction(deathChance);
+        boolean die = ProjectUtils.checkIfDoAction(deathChance);
 
-        if (die) {
+        if (die && status == "Infected" && !isDead) {
             this.isDead = true;
             Results.deadCount++;
         }

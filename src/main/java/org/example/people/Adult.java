@@ -1,7 +1,7 @@
 package org.example.people;
 
 import org.example.results.Results;
-import org.example.util.Util;
+import org.example.util.ProjectUtils;
 
 public class Adult extends Child {
     private String name;
@@ -14,6 +14,7 @@ public class Adult extends Child {
     private boolean heartache = false;
 
     private boolean phlegm = false;
+
     private boolean isVaccinated = false;
 
     private final boolean isDead = false;
@@ -24,17 +25,20 @@ public class Adult extends Child {
     @Override
     public void tryAvoidPhysicalContact() {
         int chanceToDrawAvoidPhysicalContact = 30;
-        boolean avoidPhysicalContact = Util.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
+        boolean avoidedPhysicalContact = false;
+        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
 
-        if (avoidPhysicalContact) {
+        if (avoidPhysicalContact && !avoidedPhysicalContact) {
             this.healChance += 10;
+            avoidedPhysicalContact = true;
+            System.out.println("AVOIDING PHYSICAL CONTACT");
         }
     }
 
     public void tryVaccinate() {
-        boolean vaccinate = Util.checkIfDoAction(vaccinateChance);
+        boolean vaccinate = ProjectUtils.checkIfDoAction(vaccinateChance);
 
-        if (vaccinate) {
+        if (vaccinate && status == "notInfected" && !isVaccinated) {
             this.healChance += 20;
             this.isVaccinated = true;
             Results.vaccinatedCount++;

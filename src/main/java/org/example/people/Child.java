@@ -1,14 +1,19 @@
 package org.example.people;
 
 import org.example.results.Results;
-import org.example.util.Util;
+import org.example.util.ProjectUtils;
 
 public class Child {
     private String name;
+
     private int healChance = 25;
+
     private String status = "notInfected";
+
     private boolean heartache = false;
+
     private boolean phlegm = false;
+
     private final boolean isVaccinated = false;
 
     private final boolean isDead = false;
@@ -19,17 +24,20 @@ public class Child {
 
     public void tryAvoidPhysicalContact() {
         int chanceToDrawAvoidPhysicalContact = 10;
-        boolean avoidPhysicalContact = Util.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
+        boolean avoidedPhysicalContact = false;
+        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
 
-        if (avoidPhysicalContact) {
+        if (avoidPhysicalContact && !avoidedPhysicalContact) {
             this.healChance += 10;
+            avoidedPhysicalContact = true;
+            System.out.println("AVOIDING PHYSICAL CONTACT");
         }
     }
 
     public void tryToHeal() {
-        boolean heal = Util.checkIfDoAction(healChance);
+        boolean heal = ProjectUtils.checkIfDoAction(healChance);
 
-        if(heal) {
+        if(heal && status == "Infected") {
             setStatus("Healed");
             Results.healedCount++;
         }
