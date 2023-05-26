@@ -57,22 +57,26 @@ public class ProjectUtils {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter amount of children: ");
-        int amountOfChildren = scanner.nextInt();
-        data.put("children", amountOfChildren);
+        getData(scanner, data, "children");
 
-        System.out.println("Enter amount of adults: ");
-        int amountOfAdults = scanner.nextInt();
-        data.put("adults", amountOfAdults);
+        getData(scanner, data, "adults");
 
-        System.out.println("Enter amount of elders: ");
-        int amountOfElders = scanner.nextInt();
-        data.put("elders", amountOfElders);
+        getData(scanner, data, "elders");
 
-        System.out.println("Enter duration of the pandemic (days)");
-        int days = scanner.nextInt();
-        data.put("days", days);
+        getData(scanner, data, "days");
 
+        getVirus(scanner, data);
+
+        return data;
+    }
+
+    public static void getData(Scanner scanner, HashMap<String, Object> data, String dataType) {
+        System.out.println("Enter amount of " + dataType + ": ");
+        int amount = scanner.nextInt();
+        data.put(dataType, amount);
+    }
+
+    public static void getVirus(Scanner scanner, HashMap<String, Object> data) {
         System.out.println("Choose virus: \n[1] - Acutus\n[2] - Virolexia");
         int input = scanner.nextInt();
 
@@ -87,8 +91,6 @@ public class ProjectUtils {
                 data.put("virus", virus2);
             }
         }
-
-        return data;
     }
 
 
