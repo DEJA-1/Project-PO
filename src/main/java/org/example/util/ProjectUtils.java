@@ -8,8 +8,17 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The type Project utils.
+ */
 public class ProjectUtils {
 
+    /**
+     * Check if do action boolean.
+     *
+     * @param targetPercentage the target percentage
+     * @return the boolean
+     */
     public static boolean checkIfDoAction(int targetPercentage) {
         Random random = new Random();
         int randomValue = random.nextInt(100) + 1;
@@ -17,6 +26,11 @@ public class ProjectUtils {
         return randomValue <= targetPercentage;
     }
 
+    /**
+     * Generate name string.
+     *
+     * @return the string
+     */
     public static String generateName() {
         int length = 6;
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -33,6 +47,11 @@ public class ProjectUtils {
         return sb.toString();
     }
 
+    /**
+     * Gets input data.
+     *
+     * @return the input data
+     */
     public static HashMap<String, Object> getInputData() {
         HashMap<String, Object> data = new HashMap<>();
 

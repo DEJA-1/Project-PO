@@ -3,6 +3,9 @@ package org.example.people;
 import org.example.results.Results;
 import org.example.util.ProjectUtils;
 
+/**
+ * The type Child.
+ */
 public class Child {
     private String name;
 
@@ -18,6 +21,15 @@ public class Child {
 
     private final boolean isDead = false;
 
+    /**
+     * Instantiates a new Child.
+     *
+     * @param name       the name
+     * @param healChance the heal chance
+     * @param status     the status
+     * @param heartache  the heartache
+     * @param phlegm     the phlegm
+     */
     public Child (String name, int healChance, String status, boolean heartache, boolean phlegm) {
         this.name = name;
         this.healChance = healChance;
@@ -26,6 +38,10 @@ public class Child {
         this.phlegm = phlegm;
     }
 
+
+    /**
+     * Try avoid physical contact.
+     */
     public void tryAvoidPhysicalContact() {
         int chanceToDrawAvoidPhysicalContact = 10;
         boolean avoidedPhysicalContact = false;
@@ -37,6 +53,9 @@ public class Child {
         }
     }
 
+    /**
+     * Try to heal.
+     */
     public void tryToHeal() {
         boolean heal = ProjectUtils.checkIfDoAction(healChance);
 
@@ -47,42 +66,92 @@ public class Child {
 
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets heal chance.
+     *
+     * @return the heal chance
+     */
     public int getHealChance() {
         return healChance;
     }
 
+    /**
+     * Sets status.
+     *
+     * @param status the status
+     */
     public void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * Gets status.
+     *
+     * @return the status
+     */
     public String getStatus() {
         return this.status;
     }
 
+    /**
+     * Sets heartache.
+     *
+     * @param hasHeartache the has heartache
+     */
     public void setHeartache(boolean hasHeartache) {
         this.heartache = hasHeartache;
     }
 
+    /**
+     * Gets heartache.
+     *
+     * @return the heartache
+     */
     public boolean getHeartache() {
         return this.heartache;
     }
 
+    /**
+     * Sets phlegm.
+     *
+     * @param hasPhlegm the has phlegm
+     */
     public void setPhlegm(boolean hasPhlegm) {
         this.phlegm = hasPhlegm;
     }
 
+    /**
+     * Gets phlegm.
+     *
+     * @return the phlegm
+     */
     public boolean getPhlegm() {
         return this.phlegm;
     }
 
+    /**
+     * Gets is vaccinated.
+     *
+     * @return the is vaccinated
+     */
     public boolean getIsVaccinated() {
         return this.isVaccinated;
     }
 
+    /**
+     * Gets is dead.
+     *
+     * @return the is dead
+     */
     public boolean getIsDead() {
         return this.isDead;
     }

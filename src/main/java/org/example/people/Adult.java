@@ -3,6 +3,9 @@ package org.example.people;
 import org.example.results.Results;
 import org.example.util.ProjectUtils;
 
+/**
+ * The type Adult.
+ */
 public class Adult extends Child {
     private int healChance = 30;
 
@@ -13,6 +16,17 @@ public class Adult extends Child {
     private boolean isVaccinated;
 
 
+    /**
+     * Instantiates a new Adult.
+     *
+     * @param name            the name
+     * @param healChance      the heal chance
+     * @param vaccinateChance the vaccinate chance
+     * @param status          the status
+     * @param heartache       the heartache
+     * @param phlegm          the phlegm
+     * @param isVaccinated    the is vaccinated
+     */
     public Adult(String name, int healChance, int vaccinateChance, String status, boolean heartache, boolean phlegm, boolean isVaccinated) {
         super(name, healChance, status, heartache, phlegm);
         this.isVaccinated = isVaccinated;
@@ -30,6 +44,9 @@ public class Adult extends Child {
         }
     }
 
+    /**
+     * Try vaccinate.
+     */
     public void tryVaccinate() {
         boolean vaccinate = ProjectUtils.checkIfDoAction(vaccinateChance);
         String st = getStatus();
@@ -50,6 +67,11 @@ public class Adult extends Child {
         return this.isVaccinated;
     }
 
+    /**
+     * Sets is vaccinated.
+     *
+     * @param isVaccinated the is vaccinated
+     */
     public void setIsVaccinated(boolean isVaccinated) {
         this.isVaccinated = isVaccinated;
     }

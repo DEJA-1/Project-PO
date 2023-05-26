@@ -4,7 +4,13 @@ import org.example.people.Child;
 import org.example.results.Results;
 import org.example.util.ProjectUtils;
 
+/**
+ * The type Virolexia.
+ */
 public final class Virolexia extends Virus{
+    /**
+     * Instantiates a new Virolexia.
+     */
     public Virolexia() {
         super(80);
     }

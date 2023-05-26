@@ -14,7 +14,15 @@ import java.util.HashMap;
 
 import static org.example.util.ProjectUtils.getInputData;
 
+/**
+ * The type Main.
+ */
 public class Main {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         HashMap<String, Object> data = getInputData();
@@ -31,7 +39,17 @@ public class Main {
         runSimulation(children, adults, elders, virus, days, results);
     }
 
-    /*
+    /**
+     * Run simulation.
+     *
+     * @param children the children
+     * @param adults   the adults
+     * @param elders   the elders
+     * @param virus    the virus
+     * @param days     the days
+     * @param results  the results
+     */
+/*
     TODO fix heal chance bug
      */
     public static void runSimulation(ArrayList<Child> children, ArrayList<Adult> adults, ArrayList<Elder> elders , Virus virus, int days, Results results) {
@@ -93,6 +111,12 @@ public class Main {
         results.printResults();
     }
 
+    /**
+     * Gets children.
+     *
+     * @param n the n
+     * @return the children
+     */
     public static ArrayList<Child> getChildren(int n) {
         ArrayList<Child> children = new ArrayList<Child>();
 
@@ -105,6 +129,12 @@ public class Main {
         return children;
     }
 
+    /**
+     * Gets adults.
+     *
+     * @param n the n
+     * @return the adults
+     */
     public static ArrayList<Adult> getAdults(int n) {
         ArrayList<Adult> adults = new ArrayList<Adult>();
 
@@ -117,6 +147,12 @@ public class Main {
         return adults;
     }
 
+    /**
+     * Gets elders.
+     *
+     * @param n the n
+     * @return the elders
+     */
     public static ArrayList<Elder> getElders(int n) {
         ArrayList<Elder> elders = new ArrayList<Elder>();
 
@@ -129,6 +165,11 @@ public class Main {
         return elders;
     }
 
+    /**
+     * Print info.
+     *
+     * @param person the person
+     */
     public static void printInfo(Child person) {
         String personName = person.getName();
         String personStatus = person.getStatus();

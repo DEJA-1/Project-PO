@@ -4,7 +4,13 @@ import org.example.people.Child;
 import org.example.results.Results;
 import org.example.util.ProjectUtils;
 
+/**
+ * The type Acutus.
+ */
 public final class Acutus extends Virus{
+    /**
+     * Instantiates a new Acutus.
+     */
     public Acutus() {
         super(50);
     }
