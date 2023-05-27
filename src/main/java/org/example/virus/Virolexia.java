@@ -19,8 +19,9 @@ public final class Virolexia extends Virus{
     @Override
     public void infect(Child person) {
         boolean infect = ProjectUtils.checkIfDoAction(infectionChance);
+        String personStatus = person.getStatus();
 
-        if (infect) {
+        if (infect && personStatus == "notInfected") {
             String personName = person.getName();
             System.out.println("Infecting " + personName + " with Virolexia...");
 

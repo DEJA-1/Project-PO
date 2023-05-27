@@ -10,27 +10,33 @@ public class VirolexiaTest {
 
     @Test
     public void test_Infect_infectsSuccessfully() {
-        Virus acutus = new Acutus(100);
+        Virus virolexia = new Virolexia(100);
         String expectedStatus = "Infected";
 
         Child person = new Adult("", 0, 0, "notInfected", false, false, false);
 
-        acutus.infect(person);
+        virolexia.infect(person);
 
         String personStatus = person.getStatus();
+        Boolean personPhlegm = person.getPhlegm();
+
         assertEquals(personStatus, expectedStatus);
+        assertEquals(personPhlegm, true);
     }
 
     @Test
     public void test_Infect_doesNotInfect() {
-        Virus acutus = new Acutus(100);
+        Virus virolexia = new Virolexia(100);
         String expectedStatus = "Healed";
 
         Child person = new Adult("", 0, 0, "Healed", false, false, false);
 
-        acutus.infect(person);
+        virolexia.infect(person);
 
         String personStatus = person.getStatus();
+        Boolean personPhlegm = person.getPhlegm();
+
         assertEquals(personStatus, expectedStatus);
+        assertEquals(personPhlegm, false);
     }
 }

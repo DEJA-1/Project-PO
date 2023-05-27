@@ -18,7 +18,10 @@ public class AcutusTest {
         acutus.infect(person);
 
         String personStatus = person.getStatus();
+        Boolean personHeartache = person.getHeartache();
+
         assertEquals(personStatus, expectedStatus);
+        assertEquals(personHeartache, true);
     }
 
     @Test
@@ -31,6 +34,9 @@ public class AcutusTest {
         acutus.infect(person);
 
         String personStatus = person.getStatus();
+        Boolean personHeartache = person.getHeartache();
+
         assertEquals(personStatus, expectedStatus);
+        assertEquals(personHeartache, false);
     }
 }
