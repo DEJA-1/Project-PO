@@ -4,15 +4,12 @@ import org.example.people.Adult;
 import org.example.people.Child;
 import org.example.people.Elder;
 import org.example.results.Results;
-import org.example.util.ProjectUtils;
-import org.example.virus.Acutus;
-import org.example.virus.Virolexia;
 import org.example.virus.Virus;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.example.util.ProjectUtils.getInputData;
+import static org.example.util.ProjectUtils.*;
 
 /**
  * The type Main.
@@ -111,77 +108,6 @@ public class Main {
         results.printResults();
     }
 
-    /**
-     * Gets children.
-     *
-     * @param n the n
-     * @return the children
-     */
-    public static ArrayList<Child> getChildren(int n) {
-        ArrayList<Child> children = new ArrayList<Child>();
 
-        for (int i = 0; i < n; i++) {
-            String name = ProjectUtils.generateName();
-            Child child = new Child(name, 25, "notInfected", false, false);
-            children.add(child);
-        }
-
-        return children;
-    }
-
-    /**
-     * Gets adults.
-     *
-     * @param n the n
-     * @return the adults
-     */
-    public static ArrayList<Adult> getAdults(int n) {
-        ArrayList<Adult> adults = new ArrayList<Adult>();
-
-        for (int i = 0; i < n; i++) {
-            String name = ProjectUtils.generateName();
-            Adult adult = new Adult(name, 30, 25, "notInfected", false, false, false);
-            adults.add(adult);
-        }
-
-        return adults;
-    }
-
-    /**
-     * Gets elders.
-     *
-     * @param n the n
-     * @return the elders
-     */
-    public static ArrayList<Elder> getElders(int n) {
-        ArrayList<Elder> elders = new ArrayList<Elder>();
-
-        for (int i = 0; i < n; i++) {
-            String name = ProjectUtils.generateName();
-            Elder elder = new Elder(name, 30, 40, 35, "notInfected", false, false, false, false);
-            elders.add(elder);
-        }
-
-        return elders;
-    }
-
-    /**
-     * Print info.
-     *
-     * @param person the person
-     */
-    public static void printInfo(Child person) {
-        String personName = person.getName();
-        String personStatus = person.getStatus();
-        int personHealChance = person.getHealChance();
-        boolean personHasHeartache = person.getHeartache();
-        boolean personHasPhlegm = person.getPhlegm();
-        boolean personIsVaccinated = person.getIsVaccinated();
-        boolean personIsDead = person.getIsDead();
-
-        System.out.println("---------------------------------------------");
-        System.out.println(personName + " info:\nstatus: " + personStatus + "\nheal chance: " + personHealChance + "\nheartache: " + personHasHeartache + "\nphlegm: " + personHasPhlegm + "\nvaccinated: " + personIsVaccinated + "\ndead: " + personIsDead);
-        System.out.println("---------------------------------------------");
-    }
 
 }

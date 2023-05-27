@@ -1,5 +1,8 @@
 package org.example.util;
 
+import org.example.people.Adult;
+import org.example.people.Child;
+import org.example.people.Elder;
 import org.example.virus.Acutus;
 import org.example.virus.Virolexia;
 import org.example.virus.Virus;
@@ -10,6 +13,7 @@ import org.junit.runners.JUnit4;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -106,6 +110,41 @@ public class ProjectUtilsTest {
         assertEquals(Integer.parseInt(input), data.get(dataType));
     }
 
+    @Test
+    public void test_getChildren() {
+        int n = 10;
+        ArrayList<Child> children = ProjectUtils.getChildren(n);
+
+        assertEquals(children.size(), n);
+
+        for (int i = 0; i < n; i++) {
+            assertTrue(children.get(i) instanceof Child);
+        }
+    }
+
+    @Test
+    public void test_getAdults() {
+        int n = 10;
+        ArrayList<Adult> adults = ProjectUtils.getAdults(n);
+
+        assertEquals(adults.size(), n);
+
+        for (int i = 0; i < n; i++) {
+            assertTrue(adults.get(i) instanceof Adult);
+        }
+    }
+
+    @Test
+    public void test_getElders() {
+        int n = 10;
+        ArrayList<Elder> elders = ProjectUtils.getElders(n);
+
+        assertEquals(elders.size(), n);
+
+        for (int i = 0; i < n; i++) {
+            assertTrue(elders.get(i) instanceof Elder);
+        }
+    }
     @Test
     public void test_getVirus_chooseAcutus() {
         String dataType = "virus";
