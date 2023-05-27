@@ -11,8 +11,9 @@ public final class Acutus extends Virus{
     /**
      * Instantiates a new Acutus.
      */
-    public Acutus() {
-        super(50);
+    // Default infection chance = 50
+    public Acutus(int infectionChance) {
+        super(infectionChance);
     }
 
     @Override

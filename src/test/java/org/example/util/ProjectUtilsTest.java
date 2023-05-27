@@ -53,7 +53,7 @@ public class ProjectUtilsTest {
         String dataTypeElders = "elders";
         String dataTypeDays = "days";
         String dataTypeVirus = "virus";
-        Virus virus = new Acutus();
+        Virus virus = new Acutus(50);
 
         String inputChildren = "2";
         String inputAdults = "3";
@@ -109,7 +109,7 @@ public class ProjectUtilsTest {
     @Test
     public void test_getVirus_chooseAcutus() {
         String dataType = "virus";
-        Virus virus = new Acutus();
+        Virus virus = new Acutus(50);
         String input = "1";
         HashMap<String, Object> data = new HashMap<>();
 
@@ -126,7 +126,7 @@ public class ProjectUtilsTest {
     @Test
     public void test_getVirus_chooseVirolexia() {
         String dataType = "virus";
-        Virus virus = new Virolexia();
+        Virus virus = new Virolexia(80);
         String input = "2";
         HashMap<String, Object> data = new HashMap<>();
 

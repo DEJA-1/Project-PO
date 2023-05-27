@@ -11,8 +11,9 @@ public final class Virolexia extends Virus{
     /**
      * Instantiates a new Virolexia.
      */
-    public Virolexia() {
-        super(80);
+    // Default infection chance = 80
+    public Virolexia(int infectionChance) {
+        super(infectionChance);
     }
 
     @Override
