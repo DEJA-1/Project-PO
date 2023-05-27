@@ -70,26 +70,38 @@ public class ProjectUtils {
         return data;
     }
 
+    /**
+     * Gets data.
+     *
+     * @param scanner  the scanner
+     * @param data     the data
+     * @param dataType the data type
+     */
     public static void getData(Scanner scanner, HashMap<String, Object> data, String dataType) {
         System.out.println("Enter amount of " + dataType + ": ");
         int amount = scanner.nextInt();
         data.put(dataType, amount);
     }
 
+    /**
+     * Gets virus.
+     *
+     * @param scanner the scanner
+     * @param data    the data
+     */
     public static void getVirus(Scanner scanner, HashMap<String, Object> data) {
         System.out.println("Choose virus: \n[1] - Acutus\n[2] - Virolexia");
         int input = scanner.nextInt();
+        Virus virus;
 
-        switch (input) {
-            case 1: {
-                Virus virus1 = new Acutus();
-                data.put("virus", virus1);
-            }
-
-            case 2: {
-                Virus virus2 = new Virolexia();
-                data.put("virus", virus2);
-            }
+        if (input == 1) {
+            virus = new Acutus();
+            data.put("virus", virus);
+        } else if (input == 2) {
+            virus = new Virolexia();
+            data.put("virus", virus);
+        } else {
+            System.out.println("Invalid input.");
         }
     }
 
