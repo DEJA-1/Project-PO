@@ -70,7 +70,7 @@ public class Elder extends Adult{
      * @return the death chance
      */
     public int getDeathChance() {
-        return this.getDeathChance();
+        return this.deathChance;
     }
     public int getChanceToDrawAvoidPhysicalContact() {
         return this.chanceToDrawAvoidPhysicalContact;
