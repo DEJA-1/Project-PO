@@ -12,9 +12,6 @@ import java.util.ArrayList;
  */
 public class Results {
 
-    private int days;
-
-    private Virus virus;
     /**
      * The constant infectionCount.
      */
@@ -23,20 +20,19 @@ public class Results {
      * The constant healedCount.
      */
     public static int healedCount = 0;
-
     /**
      * The constant deadCount.
      */
     public static int deadCount = 0;
-
     /**
      * The constant vaccinatedCount.
      */
     public static int vaccinatedCount = 0;
-
     private final ArrayList<Child> children;
     private final ArrayList<Adult> adults;
     private final ArrayList<Elder> elders;
+    private final int days;
+    private final Virus virus;
 
     /**
      * Instantiates a new Results.
@@ -55,7 +51,6 @@ public class Results {
         this.virus = virus;
     }
 
-
     /**
      * Print results.
      */
@@ -63,4 +58,22 @@ public class Results {
         System.out.println("Children: " + children.size() + " | Adults: " + adults.size() + " | Elders: " + elders.size() + " | virus: " + virus + " | days: " + days);
         System.out.println("Infected people: " + infectionCount + "\nHealed people: " + healedCount + "\nDead people: " + deadCount + "\nVaccinated people: " + vaccinatedCount);
     }
+
+    public static int getInfectionCount() {
+        return infectionCount;
+    }
+
+    public static int getHealedCount() {
+        return healedCount;
+    }
+
+    public static int getDeadCount() {
+        return deadCount;
+    }
+
+    public static int getVaccinatedCount() {
+        return vaccinatedCount;
+    }
+
+    //TODO - Add writing function to represent results in external file
 }

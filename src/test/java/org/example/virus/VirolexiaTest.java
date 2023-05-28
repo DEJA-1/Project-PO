@@ -2,6 +2,7 @@ package org.example.virus;
 
 import org.example.people.Adult;
 import org.example.people.Child;
+import org.example.results.Results;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -22,6 +23,7 @@ public class VirolexiaTest {
 
         assertEquals(personStatus, expectedStatus);
         assertEquals(personPhlegm, true);
+        assertEquals(Results.infectionCount, 1);
     }
 
     @Test
@@ -38,5 +40,7 @@ public class VirolexiaTest {
 
         assertEquals(personStatus, expectedStatus);
         assertEquals(personPhlegm, false);
+        assertEquals(Results.infectionCount, 0);
+
     }
 }

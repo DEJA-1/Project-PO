@@ -11,6 +11,8 @@ public class Child {
 
     private int healChance = 25;
 
+    private int chanceToDrawAvoidPhysicalContact = 10;
+
     private String status;
 
     private boolean heartache;
@@ -42,10 +44,9 @@ public class Child {
     /**
      * Try avoid physical contact.
      */
-    public void tryAvoidPhysicalContact() {
-        int chanceToDrawAvoidPhysicalContact = 10;
+    public void tryAvoidPhysicalContact(int chanceToDraw) {
         boolean avoidedPhysicalContact = false;
-        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDrawAvoidPhysicalContact);
+        boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDraw);
 
         if (avoidPhysicalContact && !avoidedPhysicalContact) {
             this.healChance += 10;
@@ -56,7 +57,7 @@ public class Child {
     /**
      * Try to heal.
      */
-    public void tryToHeal() {
+    public void tryToHeal(int healChance) {
         boolean heal = ProjectUtils.checkIfDoAction(healChance);
 
         if(heal && status == "Infected") {
@@ -154,5 +155,9 @@ public class Child {
      */
     public boolean getIsDead() {
         return this.isDead;
+    }
+
+    public int getChanceToDrawAvoidPhysicalContact() {
+        return this.chanceToDrawAvoidPhysicalContact;
     }
 }

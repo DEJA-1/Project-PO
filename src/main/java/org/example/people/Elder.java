@@ -10,6 +10,7 @@ public class Elder extends Adult{
 
     private int healChance = 30;
 
+    private int chanceToDrawAvoidPhysicalContact = 35;
     private int vaccinateChance = 35;
     private int deathChance = 35;
     private boolean isDead = false;
@@ -29,6 +30,7 @@ public class Elder extends Adult{
      */
     public Elder(String name, int healChance, int vaccinateChance, int deathChance, String status, boolean heartache, boolean phlegm, boolean isVaccinated, boolean isDead) {
         super(name, healChance, vaccinateChance, status, heartache, phlegm, isVaccinated);
+        this.healChance = healChance;
         this.isDead = isDead;
         this.deathChance = deathChance;
     }
@@ -36,7 +38,7 @@ public class Elder extends Adult{
     /**
      * Try die.
      */
-    public void tryDie() {
+    public void tryDie(int deathChance) {
         boolean die = ProjectUtils.checkIfDoAction(deathChance);
         String st = getStatus();
 
@@ -60,4 +62,10 @@ public class Elder extends Adult{
         this.isDead = isDead;
     }
 
+    public int getDeathChance() {
+        return this.getDeathChance();
+    }
+    public int getChanceToDrawAvoidPhysicalContact() {
+        return this.chanceToDrawAvoidPhysicalContact;
+    }
 }

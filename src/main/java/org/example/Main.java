@@ -54,7 +54,7 @@ public class Main {
 
             for (Child child : children) {
                 // before infection
-                child.tryAvoidPhysicalContact();
+                child.tryAvoidPhysicalContact(child.getChanceToDrawAvoidPhysicalContact());
 
                 // infection
                 String st = child.getStatus();
@@ -63,14 +63,14 @@ public class Main {
                 }
 
                 // after infection
-                child.tryToHeal();
+                child.tryToHeal(child.getHealChance());
                 printInfo(child);
             }
 
             for (Adult adult : adults) {
                 // before infection
-                adult.tryAvoidPhysicalContact();
-                adult.tryVaccinate();
+                adult.tryAvoidPhysicalContact(adult.getChanceToDrawAvoidPhysicalContact());
+                adult.tryVaccinate(adult.getVaccinateChance());
 
                 // infection
                 String st = adult.getStatus();
@@ -79,7 +79,7 @@ public class Main {
                 }
 
                 // after infection
-                adult.tryToHeal();
+                adult.tryToHeal(adult.getHealChance());
                 printInfo(adult);
             }
 
@@ -87,18 +87,17 @@ public class Main {
                 boolean isDead = elder.getIsDead();
                 if (!isDead) {
                     // before infection
-                    elder.tryAvoidPhysicalContact();
-                    elder.tryVaccinate();
+                    elder.tryAvoidPhysicalContact(elder.getChanceToDrawAvoidPhysicalContact());
+                    elder.tryVaccinate(elder.getVaccinateChance());
 
                     //infection
-
                     String st = elder.getStatus();
                     if (st == "notInfected") {
                         virus.infect(elder);
                     }
                     // after infection
-                    elder.tryToHeal();
-                    elder.tryDie();
+                    elder.tryToHeal(elder.getHealChance());
+                    elder.tryDie(elder.getDeathChance());
                 }
 
                 printInfo(elder);
