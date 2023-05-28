@@ -59,18 +59,38 @@ public class Results {
         System.out.println("Infected people: " + infectionCount + "\nHealed people: " + healedCount + "\nDead people: " + deadCount + "\nVaccinated people: " + vaccinatedCount);
     }
 
+    /**
+     * Gets infection count.
+     *
+     * @return the infection count
+     */
     public static int getInfectionCount() {
         return infectionCount;
     }
 
+    /**
+     * Gets healed count.
+     *
+     * @return the healed count
+     */
     public static int getHealedCount() {
         return healedCount;
     }
 
+    /**
+     * Gets dead count.
+     *
+     * @return the dead count
+     */
     public static int getDeadCount() {
         return deadCount;
     }
 
+    /**
+     * Gets vaccinated count.
+     *
+     * @return the vaccinated count
+     */
     public static int getVaccinatedCount() {
         return vaccinatedCount;
     }

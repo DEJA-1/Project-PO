@@ -48,6 +48,8 @@ public class Adult extends Child {
 
     /**
      * Try vaccinate.
+     *
+     * @param vaccinateChance the vaccinate chance
      */
     public void tryVaccinate(int vaccinateChance) {
         boolean vaccinate = ProjectUtils.checkIfDoAction(vaccinateChance);
@@ -78,6 +80,11 @@ public class Adult extends Child {
         this.isVaccinated = isVaccinated;
     }
 
+    /**
+     * Gets vaccinate chance.
+     *
+     * @return the vaccinate chance
+     */
     public int getVaccinateChance() {
         return this.vaccinateChance;
     }

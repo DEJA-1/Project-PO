@@ -37,6 +37,8 @@ public class Elder extends Adult{
 
     /**
      * Try die.
+     *
+     * @param deathChance the death chance
      */
     public void tryDie(int deathChance) {
         boolean die = ProjectUtils.checkIfDoAction(deathChance);
@@ -62,6 +64,11 @@ public class Elder extends Adult{
         this.isDead = isDead;
     }
 
+    /**
+     * Gets death chance.
+     *
+     * @return the death chance
+     */
     public int getDeathChance() {
         return this.getDeathChance();
     }

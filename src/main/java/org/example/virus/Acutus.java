@@ -10,8 +10,10 @@ import org.example.util.ProjectUtils;
 public final class Acutus extends Virus{
     /**
      * Instantiates a new Acutus.
+     *
+     * @param infectionChance the infection chance
      */
-    // Default infection chance = 50
+// Default infection chance = 50
     public Acutus(int infectionChance) {
         super(infectionChance);
     }

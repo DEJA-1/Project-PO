@@ -7,8 +7,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+/**
+ * The type Elder test.
+ */
 public class ElderTest {
 
+    /**
+     * Test try avoid physical contact avoids physical contact.
+     */
     @Test
     public void test_tryAvoidPhysicalContact_avoidsPhysicalContact() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -22,6 +28,9 @@ public class ElderTest {
         assertEquals(elder.getHealChance(), expectedHealChance);
     }
 
+    /**
+     * Test try avoid physical contact does not avoid physical contact.
+     */
     @Test
     public void test_tryAvoidPhysicalContact_doesNotAvoidPhysicalContact() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -36,6 +45,9 @@ public class ElderTest {
         assertEquals(elder.getHealChance(), expectedHealChance);
     }
 
+    /**
+     * Test try to heal heals.
+     */
     @Test
     public void test_tryToHeal_heals() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -52,6 +64,9 @@ public class ElderTest {
         assertEquals(expectedHealedCount, Results.getHealedCount());
     }
 
+    /**
+     * Test try to heal does not heal invalid status.
+     */
     @Test
     public void test_tryToHeal_doesNotHeal_invalidStatus() {
         Elder elder = new Elder("", 0, 0, 0, "notInfected", false, false, false, false);
@@ -68,6 +83,9 @@ public class ElderTest {
         assertEquals(expectedHealedCount, Results.getHealedCount());
     }
 
+    /**
+     * Test try to heal does not heal not drawn.
+     */
     @Test
     public void test_tryToHeal_doesNotHeal_notDrawn() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -84,6 +102,9 @@ public class ElderTest {
         assertEquals(expectedHealedCount, Results.getHealedCount());
     }
 
+    /**
+     * Test try vaccinate vaccinates.
+     */
     @Test
     public void test_tryVaccinate_vaccinates() {
         Elder elder = new Elder("", 0, 0, 0, "notInfected", false, false, false, false);
@@ -102,6 +123,9 @@ public class ElderTest {
         assertEquals(expectedVaccinatedCount, Results.getVaccinatedCount());
     }
 
+    /**
+     * Test try vaccinate does not vaccinate invalid status.
+     */
     @Test
     public void test_tryVaccinate_doesNotVaccinate_invalidStatus() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -120,6 +144,9 @@ public class ElderTest {
         assertEquals(expectedVaccinatedCount, Results.getVaccinatedCount());
     }
 
+    /**
+     * Test try vaccinate does not vaccinate not drawn.
+     */
     @Test
     public void test_tryVaccinate_doesNotVaccinate_notDrawn() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -138,6 +165,9 @@ public class ElderTest {
         assertEquals(expectedVaccinatedCount, Results.getVaccinatedCount());
     }
 
+    /**
+     * Test try die dies.
+     */
     @Test
     public void test_tryDie_dies() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);
@@ -154,6 +184,9 @@ public class ElderTest {
         assertEquals(expectedDeadCount, Results.getDeadCount());
     }
 
+    /**
+     * Test try die does not die invalid status.
+     */
     @Test
     public void test_tryDie_doesNotDie_invalidStatus() {
         Elder elder = new Elder("", 0, 0, 0, "notInfected", false, false, false, false);
@@ -170,6 +203,9 @@ public class ElderTest {
         assertEquals(expectedDeadCount, Results.getDeadCount());
     }
 
+    /**
+     * Test try die does not die not drawn.
+     */
     @Test
     public void test_tryDie_doesNotDie_notDrawn() {
         Elder elder = new Elder("", 0, 0, 0, "Infected", false, false, false, false);

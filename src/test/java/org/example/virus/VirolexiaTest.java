@@ -7,8 +7,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * The type Virolexia test.
+ */
 public class VirolexiaTest {
 
+    /**
+     * Test infect infects successfully.
+     */
     @Test
     public void test_Infect_infectsSuccessfully() {
         Virus virolexia = new Virolexia(100);
@@ -26,6 +32,9 @@ public class VirolexiaTest {
         assertEquals(Results.infectionCount, 1);
     }
 
+    /**
+     * Test infect does not infect.
+     */
     @Test
     public void test_Infect_doesNotInfect() {
         Virus virolexia = new Virolexia(100);

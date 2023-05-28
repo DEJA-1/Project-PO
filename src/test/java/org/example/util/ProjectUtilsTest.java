@@ -19,8 +19,14 @@ import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Project utils test.
+ */
 @RunWith(JUnit4.class)
 public class ProjectUtilsTest {
+    /**
+     * Test check if do action returns true.
+     */
     @Test
     public void test_checkIfDoAction_returns_true() {
         int targetPercentage = 100;
@@ -28,6 +34,9 @@ public class ProjectUtilsTest {
         assertTrue(ProjectUtils.checkIfDoAction(targetPercentage));
     }
 
+    /**
+     * Test check if do action returns false.
+     */
     @Test
     public void test_checkIfDoAction_returns_false() {
         int targetPercentage = 0;
@@ -35,6 +44,9 @@ public class ProjectUtilsTest {
         assertFalse(ProjectUtils.checkIfDoAction(targetPercentage));
     }
 
+    /**
+     * Test generate name is random.
+     */
     @Test
     public void test_generateName_isRandom() {
         String name1 = ProjectUtils.generateName();
@@ -43,6 +55,9 @@ public class ProjectUtilsTest {
         assertNotSame(name1, name2);
     }
 
+    /**
+     * Test generate name is correct size.
+     */
     @Test
     public void test_generateName_isCorrectSize() {
         String name = ProjectUtils.generateName();
@@ -50,6 +65,9 @@ public class ProjectUtilsTest {
         assertEquals(6, name.length());
     }
 
+    /**
+     * Test get input data.
+     */
     @Test
     public void test_getInputData() {
         String dataTypeChildren = "children";
@@ -94,6 +112,9 @@ public class ProjectUtilsTest {
         assertEquals(virus.getClass(), data.get(dataTypeVirus).getClass());
     }
 
+    /**
+     * Test get data.
+     */
     @Test
     public void test_getData() {
         String dataType = "children";
@@ -110,6 +131,9 @@ public class ProjectUtilsTest {
         assertEquals(Integer.parseInt(input), data.get(dataType));
     }
 
+    /**
+     * Test get children.
+     */
     @Test
     public void test_getChildren() {
         int n = 10;
@@ -122,6 +146,9 @@ public class ProjectUtilsTest {
         }
     }
 
+    /**
+     * Test get adults.
+     */
     @Test
     public void test_getAdults() {
         int n = 10;
@@ -134,6 +161,9 @@ public class ProjectUtilsTest {
         }
     }
 
+    /**
+     * Test get elders.
+     */
     @Test
     public void test_getElders() {
         int n = 10;
@@ -145,6 +175,10 @@ public class ProjectUtilsTest {
             assertTrue(elders.get(i) instanceof Elder);
         }
     }
+
+    /**
+     * Test get virus choose acutus.
+     */
     @Test
     public void test_getVirus_chooseAcutus() {
         String dataType = "virus";
@@ -162,6 +196,9 @@ public class ProjectUtilsTest {
         assertEquals(virus.getClass(), data.get(dataType).getClass());
     }
 
+    /**
+     * Test get virus choose virolexia.
+     */
     @Test
     public void test_getVirus_chooseVirolexia() {
         String dataType = "virus";

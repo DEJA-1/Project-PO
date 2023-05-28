@@ -5,7 +5,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Adult test.
+ */
 public class AdultTest {
+    /**
+     * Test try avoid physical contact avoids physical contact.
+     */
     @Test
     public void test_tryAvoidPhysicalContact_avoidsPhysicalContact() {
         Adult adult = new Adult("", 0, 0, "Infected", false, false, false);
@@ -17,6 +23,9 @@ public class AdultTest {
         assertEquals(adult.getHealChance(), expectedHealChance);
     }
 
+    /**
+     * Test try avoid physical contact does not avoid physical contact.
+     */
     @Test
     public void test_tryAvoidPhysicalContact_doesNotAvoidPhysicalContact() {
         Adult adult = new Adult("", 0, 0, "Infected", false, false, false);
@@ -28,6 +37,9 @@ public class AdultTest {
         assertEquals(adult.getHealChance(), expectedHealChance);
     }
 
+    /**
+     * Test try to heal heals.
+     */
     @Test
     public void test_tryToHeal_heals() {
         Adult adult = new Adult("", 0, 0, "Infected", false, false, false);
@@ -42,6 +54,9 @@ public class AdultTest {
         assertEquals(healedCount + 1, Results.getHealedCount());
     }
 
+    /**
+     * Test try to heal does not heal invalid status.
+     */
     @Test
     public void test_tryToHeal_doesNotHeal_invalidStatus() {
         Adult adult = new Adult("", 0, 0, "notInfected", false, false, false);
@@ -56,6 +71,9 @@ public class AdultTest {
         assertEquals(healedCount, Results.getHealedCount());
     }
 
+    /**
+     * Test try to heal does not heal not drawn.
+     */
     @Test
     public void test_tryToHeal_doesNotHeal_notDrawn() {
         Adult adult = new Adult("", 0, 0, "Infected", false, false, false);
@@ -71,6 +89,9 @@ public class AdultTest {
         assertEquals(healedCount, Results.getHealedCount());
     }
 
+    /**
+     * Test try vaccinate vaccinates.
+     */
     @Test
     public void test_tryVaccinate_vaccinates() {
         Adult adult = new Adult("", 0, 0, "notInfected", false, false, false);
@@ -89,6 +110,9 @@ public class AdultTest {
         assertEquals(expectedVaccinatedCount, Results.getVaccinatedCount());
     }
 
+    /**
+     * Test try vaccinate does not vaccinate invalid status.
+     */
     @Test
     public void test_tryVaccinate_doesNotVaccinate_invalidStatus() {
         Adult adult = new Adult("", 0, 0, "Infected", false, false, false);
@@ -107,6 +131,9 @@ public class AdultTest {
         assertEquals(expectedVaccinatedCount, Results.getVaccinatedCount());
     }
 
+    /**
+     * Test try vaccinate does not vaccinate not drawn.
+     */
     @Test
     public void test_tryVaccinate_doesNotVaccinate_notDrawn() {
         Adult adult = new Adult("", 0, 0, "notInfected", false, false, false);

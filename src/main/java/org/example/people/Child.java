@@ -43,6 +43,8 @@ public class Child {
 
     /**
      * Try avoid physical contact.
+     *
+     * @param chanceToDraw the chance to draw
      */
     public void tryAvoidPhysicalContact(int chanceToDraw) {
         boolean avoidedPhysicalContact = false;
@@ -56,6 +58,8 @@ public class Child {
 
     /**
      * Try to heal.
+     *
+     * @param healChance the heal chance
      */
     public void tryToHeal(int healChance) {
         boolean heal = ProjectUtils.checkIfDoAction(healChance);
@@ -157,6 +161,11 @@ public class Child {
         return this.isDead;
     }
 
+    /**
+     * Gets chance to draw avoid physical contact.
+     *
+     * @return the chance to draw avoid physical contact
+     */
     public int getChanceToDrawAvoidPhysicalContact() {
         return this.chanceToDrawAvoidPhysicalContact;
     }

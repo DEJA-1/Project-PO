@@ -6,9 +6,16 @@ import org.example.results.Results;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
+/**
+ * The type Acutus test.
+ */
 public class AcutusTest {
 
 
+    /**
+     * Test infect infects successfully.
+     */
     @Test
     public void test_Infect_infectsSuccessfully() {
         Virus acutus = new Acutus(100);
@@ -28,6 +35,9 @@ public class AcutusTest {
         assertEquals(infectionCount + 1, Results.getInfectionCount());
     }
 
+    /**
+     * Test infect does not infect.
+     */
     @Test
     public void test_Infect_doesNotInfect() {
         Virus acutus = new Acutus(100);
