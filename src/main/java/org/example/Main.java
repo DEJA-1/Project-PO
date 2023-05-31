@@ -46,9 +46,7 @@ public class Main {
      * @param days     the days
      * @param results  the results
      */
-/*
-    TODO fix heal chance bug
-     */
+
     public static void runSimulation(ArrayList<Child> children, ArrayList<Adult> adults, ArrayList<Elder> elders , Virus virus, int days, Results results) {
         for (int i = 0; i < days; i++) {
 
