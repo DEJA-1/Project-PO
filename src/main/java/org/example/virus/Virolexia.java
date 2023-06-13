@@ -14,8 +14,8 @@ public final class Virolexia extends Virus{
      * @param infectionChance the infection chance
      */
 // Default infection chance = 80
-    public Virolexia(int infectionChance) {
-        super(infectionChance);
+    public Virolexia(int infectionChance, String name) {
+        super(infectionChance, name);
     }
 
     @Override

@@ -103,6 +103,7 @@ public class Main {
         }
 
         results.printResults();
+        results.writeResultsToFile();
     }
 
 

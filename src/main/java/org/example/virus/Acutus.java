@@ -14,8 +14,8 @@ public final class Acutus extends Virus{
      * @param infectionChance the infection chance
      */
 // Default infection chance = 50
-    public Acutus(int infectionChance) {
-        super(infectionChance);
+    public Acutus(int infectionChance, String name) {
+        super(infectionChance, name);
     }
 
     @Override

@@ -10,14 +10,20 @@ public abstract class Virus {
      * The Infection chance.
      */
     protected int infectionChance;
+    protected String name;
 
     /**
      * Instantiates a new Virus.
      *
      * @param infectionChance the infection chance
      */
-    public Virus(int infectionChance) {
+    public Virus(int infectionChance, String name) {
         this.infectionChance = infectionChance;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     /**

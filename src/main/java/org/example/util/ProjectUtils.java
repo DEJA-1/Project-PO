@@ -99,10 +99,10 @@ public class ProjectUtils {
         Virus virus;
 
         if (input == 1) {
-            virus = new Acutus(50);
+            virus = new Acutus(50, "Acutus");
             data.put("virus", virus);
         } else if (input == 2) {
-            virus = new Virolexia(80);
+            virus = new Virolexia(80, "Virolexia");
             data.put("virus", virus);
         } else {
             System.out.println("Invalid input.");
