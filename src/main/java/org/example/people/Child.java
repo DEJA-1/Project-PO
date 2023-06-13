@@ -20,6 +20,7 @@ public class Child {
     private boolean phlegm;
 
     private final boolean isVaccinated = false;
+    private boolean avoidedPhysicalContact = false;
 
     private final boolean isDead = false;
 
@@ -47,7 +48,6 @@ public class Child {
      * @param chanceToDraw the chance to draw
      */
     public void tryAvoidPhysicalContact(int chanceToDraw) {
-        boolean avoidedPhysicalContact = false;
         boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDraw);
 
         if (avoidPhysicalContact && !avoidedPhysicalContact) {
@@ -88,6 +88,7 @@ public class Child {
     public int getHealChance() {
         return healChance;
     }
+
 
     /**
      * Sets status.

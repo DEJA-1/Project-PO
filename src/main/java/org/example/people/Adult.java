@@ -9,6 +9,7 @@ import org.example.util.ProjectUtils;
 public class Adult extends Child {
     private int healChance = 30;
     private final int chanceToDrawAvoidPhysicalContact = 35;
+    private boolean avoidedPhysicalContact = false;
 
     private int vaccinateChance = 25;
 
@@ -37,7 +38,6 @@ public class Adult extends Child {
 
     @Override
     public void tryAvoidPhysicalContact(int chanceToDraw) {
-        boolean avoidedPhysicalContact = false;
         boolean avoidPhysicalContact = ProjectUtils.checkIfDoAction(chanceToDraw);
 
         if (avoidPhysicalContact && !avoidedPhysicalContact) {
